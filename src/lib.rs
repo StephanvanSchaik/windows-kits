@@ -70,7 +70,7 @@ impl WindowsKits {
                     .unwrap_or(false)
             })
             .max()
-            .ok_or_else(|| Error::DirectoryNotFound)?;
+            .ok_or(Error::DirectoryNotFound)?;
 
         Ok(path)
     }
