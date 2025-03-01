@@ -4,5 +4,5 @@ version = "0.1.0"
 edition = "2018"
 
 [dependencies]
-thiserror = "1"
-winreg = "0.10"
+thiserror = "2"
+winreg = "0.55"
