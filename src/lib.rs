@@ -1,7 +1,7 @@
 use std::path::PathBuf;
 use thiserror::Error;
-use winreg::RegKey;
 use winreg::enums::HKEY_LOCAL_MACHINE;
+use winreg::RegKey;
 
 #[derive(Debug, Error)]
 pub enum Error {
@@ -32,9 +32,7 @@ impl WindowsKits {
         let key = r"SOFTWARE\Microsoft\Windows Kits\Installed Roots";
         let dir: String = hklm.open_subkey(key)?.get_value("KitsRoot10")?;
 
-        Ok(Self {
-            path: dir.into(),
-        })
+        Ok(Self { path: dir.into() })
     }
 
     /// Returns the path to the Windows Kits directory. The default should be
@@ -45,12 +43,11 @@ impl WindowsKits {
 
     /// Retrieves the path to the directory for the given [`DirectoryType`].
     pub fn get_dir(&self, directory_type: DirectoryType) -> PathBuf {
-        self.path()
-            .join(match directory_type {
-                DirectoryType::Binaries => "bin",
-                DirectoryType::Headers => "Include",
-                DirectoryType::Libraries => "Lib",
-            })
+        self.path().join(match directory_type {
+            DirectoryType::Binaries => "bin",
+            DirectoryType::Headers => "Include",
+            DirectoryType::Libraries => "Lib",
+        })
     }
 
     /// Retrieves the path to the directory for the given [`DirectoryType`] joined by the version
