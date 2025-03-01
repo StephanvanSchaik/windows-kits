@@ -2,6 +2,12 @@
 name = "windows-kits"
 version = "0.1.0"
 edition = "2018"
+authors = ["S.J.R. van Schaik <stephan@synkhronix.com>"]
+description = "Rust helper crate to automatically find installations of the Windows SDK"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+documentation = "https://docs.rs/windows-kits"
+repository  = "https://github.com/StephanvanSchaik/windows-kits"
 
 [dependencies]
 thiserror = "2"
